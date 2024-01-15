@@ -59,7 +59,7 @@
     justify-content: center;
     align-items: center;
         &__item a {
-            padding: 0 10px;
+            padding: 0 10px 20px;
             @include font('Raleway', 13px, 700, 15px);
              text-transform: capitalize;
             text-decoration: none;
