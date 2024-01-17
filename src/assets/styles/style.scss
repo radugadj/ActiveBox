@@ -1,18 +1,21 @@
 @import "reset";
 @import "mixin";
 @import "cdn";
+@import "color.scss";
 
 
 
 /* Banner */
-
 .banner {
     &__container {
+        @media screen  and (max-width: 480px) {        
+            max-width: 100%;
+            padding: 20px;
+        }
         background: url(../images/background.jpg), lightgray 50% / cover no-repeat;
         padding: 36px 170px 0 170px;
         position: relative;
         z-index: 0;
-
         &:after {
             position: absolute;
             content: '';
@@ -26,6 +29,69 @@
             z-index: -1;
         }
     }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 480px) {
+            &__wrapper {
+                width: 100%;
+            }
+        }
+    }
+        &__title {
+            color: $white;
+            text-align: center;
+            @include font('Raleway', 64px, 900, 75.14px);
+            text-transform: uppercase;
+            margin-bottom: 31px;
+            @media screen  and (max-width: 480px) {
+                &__title {
+                    color: $white;
+                    text-align: center;
+                    font-size: 36px;
+                    font-weight: 900;
+                    line-height: 42.26px;
+                    text-transform: uppercase;
+                    max-width: 100%;
+                    margin-bottom: 32px;
+                    max-width: 280px;
+                }
+    
+            }
+        }
+        &__text {
+            color: $white;
+            text-align: center;
+            @include font('Raleway', 24px, 400, 28.18px);
+            margin-bottom: 79px;
+            @media screen  and (max-width: 480px) {
+                &__text {
+                    @include font('Raleway', 14px, 400, 16.44px);
+                    color: $white;
+                    text-align: center;
+                    max-width: 100%;
+                    margin-bottom: 49px;
+                    max-width: 280px;
+                }
+            }
+        }
+                &__button {
+                    display: block;
+                    cursor: pointer;
+                    color: #FFF;
+                    text-align: center;
+                    @include font('Raleway', 24px, 900, 28.18px);
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    background: $red;
+                    border: none;
+                    max-width: 370px;
+                    width: 100%;
+                    padding: 16px;
+                    margin-bottom: 120px;
+        }
     
 }
 
@@ -37,16 +103,50 @@
     justify-content: space-between;
     position: relative;
     align-items: center;
-    margin-bottom: 31px; 
-    &__line {
-    width: 100%;
-    height: 1px;
-    background: #BABBC5;
-    margin-bottom: 131px;
+    margin-bottom: 130px; 
+    &:after {
+            position: absolute;
+            content: '';
+            display: block;
+            left: 0;
+            top: 60px;
+            width: 100%;
+            height: 1px;
+            background: $grey;
+            @media screen  and (max-width: 480px) {
+            & {
+                display: none;
+            }
+    
+        }
+        }
+    @media screen  and (max-width: 480px) {
+            & {
+                position: relative;
+                margin-bottom: 31px;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+                &__logo {
+                    display: block;
+                    float: left;
+                    width: 103.472px;
+                    height: 14.352px;
+                }
+        }
+    
+    
 }
-}
+
 .hamburger__menu {
     display: none;
+        @media screen  and (max-width: 480px) {
+            & {
+                display: flex;
+            }
+    
+        }
 }
 
 .menu {
@@ -58,6 +158,17 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    @media screen  and (max-width: 480px) {
+        &__item {
+            display: none;
+        }
+            .hamburger__menu {
+                display: block;
+                width: 55px;
+                height: 56px;
+                flex-shrink: 0;
+            }
+    }
         &__item a {
             padding: 0 10px 20px;
             @include font('Raleway', 13px, 700, 15px);
@@ -65,134 +176,126 @@
             text-decoration: none;
             text-transform: uppercase;
             text-align: center;
-            color: #FFF;
+            color: $white;
         }
             &__item:hover {
             transform: scale(1.5);
             transition: 0.1s;
             }
                     &__item a:hover {
-                        color: #ffffff;
+                        color: $white;
                         transition: 0.1s;
-                        border-bottom: 3px solid rgba(231, 20, 20, 1);
+                        border-bottom: 3px solid #BABBC5;
                     }
                         &__item a:active {
-                            color: rgba(231, 20, 20, 1);
+                            color: $red;
                             transition: 0.1s;
+                            border-bottom: 3px solid $red;
                         }   
 }
 
+/* Features */
 
 
-
-.logo {
-    margin-top: 20px;
-}
-
-/* Banner */
-
-.banner {
-    &__wrapper {
+.features {
+    &__container {
+        margin: 116px auto 116px;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
         justify-content: center;
         align-items: center;
+        flex-direction: row;
+        column-gap: 30px;  
     }
-        &__title {
-            color: #FFF;
-            text-align: center;
-            @include font('Raleway', 64px, 900, 75.14px);
-            text-transform: uppercase;
-            margin-bottom: 31px;
+    @media screen and (max-width: 480px) {
+            &__container {
+                margin: 40px auto 35px;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                column-gap: 30px;
+            }
+        } 
+    &__block {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 370px;
+        margin-bottom: 87px;  
+            @media screen and (max-width: 480px) {
+                max-width: 279px;
+                margin-bottom: 41px;
+                    &:nth-last-child(1) {
+                    margin-bottom: 0;
+                 }
+            } 
+    }
+    &__block:nth-last-child(-n+3) {
+                margin-bottom: 0;
+        
+    }
+    &__image {
+        max-width: 100px;
+        margin-bottom: 29px;
+        @media screen and (max-width: 480px) {
+            margin-bottom: 20px;
+            svg {
+            width: 75.753px;
+            height: 75.753px;
+            }
+            
+        } 
+    }
+
+    &__title {
+        max-width: 370px;
+        color: #2D3033;
+        @include font('Raleway', 24px, 900, 28.18px);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @media screen and (max-width: 480px) {
+            @include font('Raleway', 18px, 900, 21px);
+            margin-bottom: 10px;
+            max-width: 280px;
         }
-        &__text {
-            color: #FFF;
-            text-align: center;
-            @include font('Raleway', 24px, 400, 28.18px);
-            margin-bottom: 79px;
+    }
+    &__description {
+        max-width: 370px;
+        color: #6C7279;
+        @include font('Raleway', 18px, 400, 21px);
+        text-align: center;
+        @media screen and (max-width: 480px) {
+            @include font('Raleway', 14px, 400, 16px);
+            max-width: 280px;
         }
-                &__button {
-                    display: block;
-                    cursor: pointer;
-                    color: #FFF;
-                    text-align: center;
-                    @include font('Raleway', 24px, 900, 28.18px);
-                    text-transform: uppercase;
-                    text-decoration: none;
-                    background: #FF4343;
-                    border: none;
-                    max-width: 370px;
-                    width: 100%;
-                    padding: 16px;
-                    margin-bottom: 120px;
-        }
+    }
 }
 
 .btn {
+    @media screen  and (max-width: 480px) {
+        & {
+            max-width: 280px;
+            margin-bottom: 52px;
+        }
+    }
     &:hover {
-        background: #E71414;
+        background: $darkred;
     }
         &:active {
-            background: #FF4343;
-            box-shadow: 4px 4px 30px 0px #FF4343;
+            background: $lightred;
+            box-shadow: 4px 4px 30px 0px $red;
         }
 
 }
 
 @media screen  and (max-width: 480px) {
-    .banner__container {
-        max-width: 100%;
-        padding: 20px;
-    }
-    .header {
-        position: relative;
-        margin-bottom: 31px;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-   
-    .menu__item, .header__line {
-        display: none;
-    }
-    .hamburger__menu {
-        display: block;
-        width: 55px;
-            height: 56px;
-            flex-shrink: 0;
-    }
-    .header__logo {
-        display: block;
-        float: left;
-        width: 103.472px;
-        height: 14.352px;
-    }
-    .btn {
-        max-width: 280px;
-        margin-bottom: 52px;
-    }
-    .banner__wrapper {
-        width: 100%;
-    }
-    .banner__title {
-        color: #FFF;
-        text-align: center;
-        font-size: 36px;
-        font-weight: 900;
-        line-height: 42.26px;
-        text-transform: uppercase;
-        max-width: 100%;
-        margin-bottom: 32px;
-        max-width: 280px;
-    }
-    .banner__text {
-        color: #FFF;
-        text-align: center;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 16.44px;
-        max-width: 100%;
-        margin-bottom: 49px;
-        max-width: 280px;
-    }
+    
+    
 }
