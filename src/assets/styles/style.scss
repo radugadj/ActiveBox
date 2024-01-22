@@ -12,7 +12,10 @@
     left: 0;
     width: 100%;
     z-index: 1;
-    padding: 38px 0;
+    @media screen and (max-width: 767px) {
+        padding: 22px 0;
+        display: flex;
+    }
     &.scrolled {
         display: none;
         
@@ -22,9 +25,7 @@
         position: relative;
         justify-content: space-between;
         align-items: center;
-        position: relative;
-    @media screen and (max-width: 480px) {
-        margin: 21px 20px;
+    @media screen and (max-width: 767px) {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -32,41 +33,36 @@
         &:after {
             position: absolute;
             content: "";
-            bottom: -10px;
+            bottom: 0;
             width: calc( 100% - 30px );
             border-top: 1px solid $grey;
             left: 50%;
             transform: translateX(-50%);
-            @media screen and (max-width: 480px) {
-                & {
+            @media screen and (max-width: 767px) {
                     display: none;
-                }
             }
-        }
-    }
-        @media screen and (max-width: 480px) {
-        &__logo {
-            display: block;
-            float: left;
-            width: 103.472px;
-            height: 14.352px;
         }
     }
     &__logo {
         position: relative;
-        top: 0;
-        left: 0;
+         @media screen and (max-width: 767px) {
+            display: flex;
+            max-width: 103.472px;
+    }
     }
     
 }
-.header
 
 .burger__menu {
     display: none;
-    @media screen and (max-width: 480px) {
-        & {
-            display: flex;
-        }
+    width: 55px;
+    height: 56px;
+    flex-shrink: 0;
+        @media screen and (max-width: 767px) {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+            
     }
 }
 
@@ -78,41 +74,28 @@
     justify-content: center;
     align-items: center;
     }
-    
-    @media screen and (max-width: 480px) {
-        & {
+    @media screen and (max-width: 767px) {
             display: none;
-        }
-        .burger__menu {
-            display: block;
-            width: 55px;
-            height: 56px;
-            flex-shrink: 0;
-        }
     }
-    &__item a {
+    &__link {
         @include font("Raleway", 13px, 700, 15px);
         text-decoration: none;
         text-transform: uppercase;
         text-align: center;
         border-bottom: 1px solid transparent;
         color: $white;
-        padding: 0 10px 20px;
+        padding: 36px 5px ;
+        min-width: 132px;
         display: block;
-    }
-    &__item:hover {
-        transform: scale(1.5);
-        transition: 0.1s;
-    }
-    &__item a:hover {
-        color: $white;
-        transition: 0.1s;
-        border-bottom: 3px solid $grey;
-    }
-    &__item a:active {
-        color: $red;
-        transition: 0.1s;
-        border-bottom: 3px solid $red;
+
+        &:hover {
+            color: $white;
+            border-bottom: 3px solid $grey;
+        }
+        &:active {
+            color: $red;
+            border-bottom: 3px solid $red;
+        }
     }
 }
 
@@ -121,20 +104,15 @@
 /* Banner */
 
 .banner {
-    &__container {
-        @media screen and (max-width: 480px) {
-            max-width: 100%;
-            padding: 20px;
-            margin-bottom: 106px auto;
-        }
-        background:
+    background:
             url(../images/background.jpg),
             lightgray 50% / cover no-repeat;
-        padding: 36px 170px 0 170px;
-        position: relative;
-        z-index: 0;
-        max-width: 1510px;
-        &:after {
+    padding: 230px 0 120px;
+    position: relative;
+    @media screen and (max-width: 767px){
+        padding: 0;
+    }
+     &:after {
             position: absolute;
             content: "";
             display: block;
@@ -144,53 +122,45 @@
             height: 100%;
             opacity: 0.8;
             background-color: rgba(37, 43, 73, 1);
-            z-index: -1;
-        }
-    }
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        @media screen and (max-width: 480px) {
-            &__wrapper {
-                width: 100%;
-            }
+     }
+    &__container {
+        position: relative;
+        z-index: 1;
+        @media screen and (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+            padding: 20px;
         }
     }
     &__title {
         color: $white;
         text-align: center;
-        @include font("Raleway", 64px, 900, 75.14px);
-        text-transform: uppercase;
-            padding-top: 230px;
-        margin-bottom: 30px;
-        @media screen and (max-width: 480px) {
-            &__title {
-                color: $white;
-                @include font("Raleway", 36px, 900, 42.26px);
-                text-align: center;
+            @include font("Raleway", 64px, 900, 75.14px);
                 text-transform: uppercase;
-                max-width: 100%;
-                padding-top: 32px;
-                max-width: 280px;
-            }
-        }
+                padding-top: 230px;
+                margin-bottom: 30px;
+                @media screen and (max-width: 767px) {
+                        color: $white;
+                        @include font("Raleway", 36px, 900, 42.26px);
+                        text-align: center;
+                        text-transform: uppercase;
+                        padding-top: 106px;
+                }
     }
     &__text {
         color: $white;
         text-align: center;
         @include font("Raleway", 24px, 400, 28.18px);
         margin-bottom: 83px;
-        @media screen and (max-width: 480px) {
-            &__text {
+        @media screen and (max-width: 767px) {
                 @include font("Raleway", 14px, 400, 16.44px);
                 color: $white;
                 text-align: center;
                 max-width: 100%;
                 margin-bottom: 49px;
                 max-width: 280px;
-            }
         }
     }
     &__button {
@@ -206,7 +176,19 @@
         max-width: 370px;
         width: 100%;
         padding: 24px 0 26px;
-        margin-bottom: 120px;
+        margin: 0 auto;
+        &:hover {
+            background: $darkred;
+        }
+         &:active {
+            background: $lightred;
+            box-shadow: 4px 4px 30px 0px $red;
+            }
+        @media screen and (max-width: 767px) {
+                        max-width: 100%;
+                        margin-bottom: 52px;
+                }
+
     }
 }
 
@@ -224,7 +206,7 @@
         column-gap: 30px;
         max-width: 1510px;
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 767px) {
         &__container {
             margin: 40px auto 35px;
             display: flex;
@@ -244,7 +226,7 @@
         align-items: center;
         max-width: 370px;
         margin-bottom: 87px;
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 767px) {
             max-width: 279px;
             margin-bottom: 41px;
             &:nth-last-child(1) {
@@ -258,7 +240,7 @@
     &__image {
         max-width: 100px;
         margin-bottom: 29px;
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 767px) {
             margin-bottom: 20px;
             svg {
                 width: 75.753px;
@@ -274,7 +256,7 @@
         text-align: center;
         text-transform: uppercase;
         margin-bottom: 20px;
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 767px) {
             @include font("Raleway", 18px, 900, 21px);
             margin-bottom: 10px;
             max-width: 280px;
@@ -285,26 +267,10 @@
         color: #6c7279;
         @include font("Raleway", 18px, 400, 21px);
         text-align: center;
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 767px) {
             @include font("Raleway", 14px, 400, 16px);
             max-width: 280px;
         }
-    }
-}
-
-.btn {
-    @media screen and (max-width: 480px) {
-        & {
-            max-width: 280px;
-            margin-bottom: 52px;
-        }
-    }
-    &:hover {
-        background: $darkred;
-    }
-    &:active {
-        background: $lightred;
-        box-shadow: 4px 4px 30px 0px $red;
     }
 }
 
@@ -318,6 +284,11 @@
         padding: 0;
         column-gap: 2px;
         max-width: 1510px;
+        @media screen and (max-width: 767px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            
+        }
     }
     &__image {
         position: relative;
