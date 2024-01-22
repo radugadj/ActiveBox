@@ -12,13 +12,23 @@
     left: 0;
     width: 100%;
     z-index: 1;
-    transition: transform .1s linear;
+    padding: 38px 0;
+    &.scrolled {
+        display: none;
+        
+    }
     &__container {
-    margin: 38px 170px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    @media screen and (max-width: 480px) {
+        margin: 21px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
         &:after {
             position: absolute;
             content: "";
@@ -34,14 +44,7 @@
             }
         }
     }
-    @media screen and (max-width: 480px) {
-        & {
-            position: relative;
-            margin-bottom: 31px;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
+        @media screen and (max-width: 480px) {
         &__logo {
             display: block;
             float: left;
@@ -54,12 +57,11 @@
         top: 0;
         left: 0;
     }
-    .hide {
-    transform: translateY(-50px);
-    }
+    
 }
+.header
 
-.hamburger__menu {
+.burger__menu {
     display: none;
     @media screen and (max-width: 480px) {
         & {
@@ -68,15 +70,20 @@
     }
 }
 
-.menu {
-    display: flex;
+.nav {
+    &__menu {
     column-gap: 30px;
     list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
     @media screen and (max-width: 480px) {
-        &__item {
+        & {
             display: none;
         }
-        .hamburger__menu {
+        .burger__menu {
             display: block;
             width: 55px;
             height: 56px;
@@ -118,6 +125,7 @@
         @media screen and (max-width: 480px) {
             max-width: 100%;
             padding: 20px;
+            margin-bottom: 106px auto;
         }
         background:
             url(../images/background.jpg),
@@ -125,6 +133,7 @@
         padding: 36px 170px 0 170px;
         position: relative;
         z-index: 0;
+        max-width: 1510px;
         &:after {
             position: absolute;
             content: "";
@@ -154,18 +163,16 @@
         text-align: center;
         @include font("Raleway", 64px, 900, 75.14px);
         text-transform: uppercase;
-        padding-top: 230px;
-        margin-bottom: 31px;
+            padding-top: 230px;
+        margin-bottom: 30px;
         @media screen and (max-width: 480px) {
             &__title {
                 color: $white;
+                @include font("Raleway", 36px, 900, 42.26px);
                 text-align: center;
-                font-size: 36px;
-                font-weight: 900;
-                line-height: 42.26px;
                 text-transform: uppercase;
                 max-width: 100%;
-                margin-bottom: 32px;
+                padding-top: 32px;
                 max-width: 280px;
             }
         }
@@ -174,7 +181,7 @@
         color: $white;
         text-align: center;
         @include font("Raleway", 24px, 400, 28.18px);
-        margin-bottom: 79px;
+        margin-bottom: 83px;
         @media screen and (max-width: 480px) {
             &__text {
                 @include font("Raleway", 14px, 400, 16.44px);
@@ -198,7 +205,7 @@
         border: none;
         max-width: 370px;
         width: 100%;
-        padding: 16px;
+        padding: 24px 0 26px;
         margin-bottom: 120px;
     }
 }
@@ -215,6 +222,7 @@
         justify-content: center;
         align-items: center;
         column-gap: 30px;
+        max-width: 1510px;
     }
     @media screen and (max-width: 480px) {
         &__container {
@@ -308,10 +316,14 @@
         grid-template-columns: repeat(4, 1fr);
         margin: 0;
         padding: 0;
+        column-gap: 2px;
+        max-width: 1510px;
     }
     &__image {
         position: relative;
         padding-top: 100%;
+        width: 100%;
+        height: 100%;
     }
     &__img {
         position: absolute;
@@ -322,8 +334,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        width: auto;
-        flex-shrink: 0;
     }
     &__info {
         position: absolute;
@@ -339,6 +349,11 @@
         opacity: 0;
         &:hover {
             opacity: 1;
+        }
+        &:active {
+            opacity: 1;
+            background: rgba(185, 12, 12, 0.80);
+
         }
     }
     &__title {
