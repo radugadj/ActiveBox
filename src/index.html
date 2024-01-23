@@ -10,10 +10,10 @@
     <title>ActiveBox</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="container header__container">
             <a href="#" class="header__logo">
-                <svg class="header__logo" npm install -D sass width="184" height="27" viewBox="0 0 184 27" fill="none"
+                <svg width="184" height="27" viewBox="0 0 184 27" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M16.0136 21.0865H7.81939L6.38839 25.7644H0L9.09706 0.723712H14.7188L23.884 25.7644H17.4616L16.0136 21.0865ZM9.25038 16.4257H14.5826L11.908 7.74061L9.25038 16.4257Z"
@@ -46,30 +46,27 @@
                         <a class="nav__link" href="#features">Features</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="menu__link">Work</a>
+                        <a href="" class="nav__link">Work</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="menu__link">Our Team</a>
+                        <a href="" class="nav__link">Our Team</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="menu__link">Testomonials</a>
+                        <a href="" class="nav__link">Testomonials</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="menu__link">Download</a>
+                        <a href="" class="nav__link">Download</a>
                     </li>
                 </ul>
                 
             </nav>
-            <button class="burger__menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="55" height="56" viewBox="0 0 55 56" fill="none">
-                    <path d="M16 19H40V22H16V19ZM16 26.5H40V29.5H16V26.5ZM16 34H40V37H16V34Z" fill="white" />
-                </svg>
-            </button>
+            <div class="header__toggle-menu">
+                <div class="header__toggle-item"></div>
+            </div>
         </div>
-    </div>
+    </header>
     <section class="banner">
         <div class="container banner__container">
-            <div class="banner__wrapper">
                 <h1 class="banner__title">Your Favorite One Page
                     Multi Purpose Template
                 </h1>
@@ -77,7 +74,6 @@
                     vel scelerisque nisl consectetur et.
                 </p>
                 <button class="banner__button btn btn__primary">Find Out More</button>
-            </div>
         </div>
     </section>
     <div class="features" id="features">
