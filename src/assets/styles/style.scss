@@ -12,7 +12,8 @@
     width: 100%;
     z-index: 2;
     @media screen and (max-width: 767px) {
-        padding: 22px 0;
+        height: 100%;
+        width: 100%;
     }
     &.scrolled {
         display: none;
@@ -22,8 +23,11 @@
         position: relative;
         justify-content: space-between;
         align-items: center;
+        padding: 0;
         @media screen and (max-width: 767px) {
             display: block;
+            width: 100%;
+            height: 100%;
         }
         &:after {
             position: absolute;
@@ -41,6 +45,7 @@
     &__logo {
         position: relative;
         @media screen and (max-width: 767px) {
+            margin-top: 21px;
             max-width: 103.472px;
             display: flex;
             position: absolute;
@@ -56,6 +61,7 @@
         height: 18px;
         position: relative;
         @media screen and (max-width: 767px) {
+            margin-top: 21px;
             display: block;
             position: absolute;
             left: 88%;
@@ -113,9 +119,9 @@
         &.open {
             display: flex;
             z-index: 1;
-            background: url(../images/background.jpg);
+            background: url(../images/background.jpg), ;
             background-size: cover;
-            width: 100%;
+            max-width: 100%;
             height: 100%;
             &::after {
                 content: "";
@@ -132,7 +138,6 @@
 
     &__menu {
         z-index: 1;
-        column-gap: 30px;
         list-style-type: none;
         display: flex;
         justify-content: center;
@@ -140,7 +145,7 @@
         @media screen and (max-width: 767px) {
             z-index: 1;
             display: block;
-            margin-top: 84px;
+            margin-top: 70px;
         }
     }
 
@@ -151,11 +156,10 @@
         text-align: center;
         border-bottom: 1px solid transparent;
         color: $white;
-        padding: 36px 5px;
-        min-width: 132px;
+        padding: 43px 30px;
         display: block;
         @media screen and (max-width: 767px) {
-            padding: 15px 0;
+            padding: 20px 20px;
             text-align: left;
             
         }
@@ -220,7 +224,7 @@
         color: $white;
         text-align: center;
         @include font("Raleway", 24px, 400, 28.18px);
-        margin-bottom: 83px;
+        margin-bottom: 80px;
         @media screen and (max-width: 767px) {
             @include font("Raleway", 14px, 400, 16.44px);
             color: $white;
@@ -234,21 +238,23 @@
         cursor: pointer;
         color: $white;
         text-align: center;
-        @include font("Raleway", 24px, 900, 28.18px);
+        @include font("Raleway", 24px, 900, 30.18px);
         text-transform: uppercase;
         text-decoration: none;
         background: $red;
         border: none;
         max-width: 370px;
         width: 100%;
-        padding: 13px 0 18px;
+        padding: 25px 0;
         margin: 0 auto;
         &:hover {
             background: $darkred;
+            transition: all 0.3s linear;
         }
         &:active {
             background: $lightred;
-            box-shadow: 4px 4px 30px 0px $red;
+            box-shadow: 4px 4px 30px 0px $darkred;
+            transition: all 0.3s linear;
         }
         @media screen and (max-width: 767px) {
             max-width: 100%;
@@ -444,21 +450,12 @@
             height: 39.6px;
         }
         &:hover {
-            border: 1px solid $grey;
-            path {
-                fill: $grey;
-            }
+            border: 3px solid $darkred;
+            transition: all 0.3s linear;
         }
-
         &:active {
-            border: 1px solid $grey;
-            path {
-                fill: $grey;
-            }
-
-            svg path {
-                transition: all 0.3s linear;
-            }
+            border: 3px solid $darkred;
+            transition: all 0.3s linear
         }
     }
 }
@@ -467,7 +464,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 30px;
-    padding: 114px 0;
+    padding: 114px 20px;
     margin: 0 auto;
     @media only screen and (max-width: 1024px) {
         column-gap: 25px;
@@ -479,8 +476,8 @@
     }
 }
 
-.member {
-    &__wrapper-img {
+.people {
+    &__img {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -549,7 +546,6 @@
 
 .download {
     margin: 0 auto 113.5px;
-    scroll-margin-top: 57px;
     @media only screen and (max-width: 1024px) {
         margin-bottom: 76px;
     }
@@ -612,20 +608,26 @@
         border: none;
         max-width: 370px;
         width: 100%;
-        padding: 13px 0 18px;
+        padding: 18px 0 18px;
         margin: 0 auto;
         &:hover {
             background: $darkred;
+            transition: all 0.3s linear;
         }
         &:active {
             background: $lightred;
-            box-shadow: 4px 4px 30px 0px $red;
+            box-shadow: 4px 4px 30px 0px $darkred;
+            transition: all 0.3s linear;
         }
     }
 }
 
 // * Testimonials * //
 .testimonials {
+    padding-bottom: 45px;
+    @media screen and (max-width: 767px) {
+        padding-bottom: 0;
+    }
     &__container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -643,11 +645,13 @@
         align-items: center;
         grid-row-gap: 10px;
         background-color: $purpure;
+        margin-bottom: 159px;
         @media screen and (max-width: 767px){
             display: flex;
             flex-direction: column;
             padding: 32px 25px 95px;
             align-items: center;
+            margin-bottom: 0;
         }
         &-title {
             @include font("Cordo", 36px, 400, 49px);
@@ -677,19 +681,23 @@
         align-items: center;
         overflow: hidden;
         position: relative;
+        margin-bottom: 159px;
+        @media only screen and (max-width: 767px) {
+                position: relative;
+                margin: 0;
+                background-size: contain;
+        } 
+        }
         &__img {
             object-fit: cover;
             object-position: center;
             width: 100%;
             height: 100%;
-            position: absolute;
-            @media only screen and (max-width: 767px) {
-            object-fit: cover;
-            object-position: center;
-            width: 100%;
-            height: 100%;
+            position: relative;
+            @media screen and (max-width: 767px) {
+                margin: 0;
+                aspect-ratio: 4/3;
 
-        }
         }
     }
 }
@@ -847,3 +855,39 @@
         }
     }
 }
+
+
+.swiper .testimonials .testimonialsSwiper .swiper-initialized .swiper-horizontal .swiper-backface-hidden {
+    padding: 45px;
+ }
+
+ .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    border: 1px  solid $purpure;
+    border-radius: 50%;
+    background-color: transparent;
+    opacity: 1;
+ }
+
+ .swiper-pagination-bullet-active {
+    background-color: $purpure;
+ }
+
+ .swiper-horizontal, .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+ }
+
+ .swiper-pagination {
+    display: flex;
+    column-gap: 25px;
+    justify-content: center;
+    margin-bottom: 114px;
+    @media screen and (max-width: 767px) {
+        margin-bottom: 35px;
+    }
+ }
+
+ .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 0;
+ }
