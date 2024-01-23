@@ -30,13 +30,13 @@
             menuButton.classList.toggle('open');
         }
 
-        // // Добавляем слушатель события для каждого пункта меню
-        let menuItems = document.querySelectorAll('.menu li');
-        menuItems.forEach(function(item) {
-            item.addEventListener('click', closeMenu);
-        });
+        // // // Добавляем слушатель события для каждого пункта меню
+        // let menuItems = document.querySelectorAll('.menu li');
+        // menuItems.forEach(function(item) {
+        //     item.addEventListener('click', closeMenu);
+        // });
 
-         // Функция для закрытия меню
-        function closeMenu() {
-            menu.classList.remove('open');
-        }
+        //  // Функция для закрытия меню
+        // function closeMenu() {
+        //     menu.classList.remove('open');
+        // }
