@@ -40,3 +40,10 @@
         // function closeMenu() {
         //     menu.classList.remove('open');
         // }
+
+        var swiper = new swiper(".testimonialsSwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+        });

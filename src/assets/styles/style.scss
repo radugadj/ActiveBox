@@ -23,9 +23,7 @@
         justify-content: space-between;
         align-items: center;
         @media screen and (max-width: 767px) {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: block;
         }
         &:after {
             position: absolute;
@@ -43,8 +41,12 @@
     &__logo {
         position: relative;
         @media screen and (max-width: 767px) {
-            display: flex;
             max-width: 103.472px;
+            display: flex;
+            position: absolute;
+            z-index: 1;
+            left: 20px;
+            top: 0;
         }
     }
     &__toggle-menu {
@@ -54,8 +56,10 @@
         height: 18px;
         position: relative;
         @media screen and (max-width: 767px) {
-            display: flex;
-            align-items: center;
+            display: block;
+            position: absolute;
+            left: 88%;
+            top: 0;
         }
         &::before {
             content: "";
@@ -80,6 +84,7 @@
         &.open {
             .header__toggle-item {
                 opacity: 0;
+                z-index: 3;
             }
             &::after {
                 transform: rotate(-45deg) translate(5px, -5px);
@@ -107,13 +112,11 @@
         display: none;
         &.open {
             display: flex;
-            justify-content: flex-start;
-            top: 0;
-            left: 0;
-            flex-direction: column;
+            z-index: 1;
             background: url(../images/background.jpg);
             background-size: cover;
-            background-position: no-repeat;
+            width: 100%;
+            height: 100%;
             &::after {
                 content: "";
                 position: absolute;
@@ -135,6 +138,9 @@
         justify-content: center;
         align-items: center;
         @media screen and (max-width: 767px) {
+            z-index: 1;
+            display: block;
+            margin-top: 84px;
         }
     }
 
@@ -148,6 +154,11 @@
         padding: 36px 5px;
         min-width: 132px;
         display: block;
+        @media screen and (max-width: 767px) {
+            padding: 15px 0;
+            text-align: left;
+            
+        }
         &:hover {
             color: $white;
             border-bottom: 3px solid $grey;
@@ -618,11 +629,11 @@
     &__container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        height: auto;
         @media screen and (max-width: 767px){
             display: flex;
             flex-direction: column;
             margin-bottom: 67px;
-            
         }
     }
     &__wrapper {
@@ -665,19 +676,13 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        // @media only screen and (max-width: 767px) {
-        //     object-fit: cover;
-        //     object-position: center;
-        //     max-width: 320px;
-        //     width: 100%;
-        //     height: 100%;
-
-        // }
+        position: relative;
         &__img {
             object-fit: cover;
             object-position: center;
             width: 100%;
             height: 100%;
+            position: absolute;
             @media only screen and (max-width: 767px) {
             object-fit: cover;
             object-position: center;
@@ -687,22 +692,6 @@
         }
         }
     }
-    // .circle__wrapper {
-    //     display: flex;
-    //     justify-content: center;
-    //     margin-top: 31px;
-    //     margin-bottom: 114px;
-    //     .circle {
-    //         // width: 100px; /* задаете свои размеры */
-    //         // height: 100px;
-    //         // border-radius: 50%;
-    //         // /* не забываем о кроссбраузерности */
-    //         // -moz-border-radius: 50%;
-    //         // -webkit-border-radius: 50%;
-    //         // -khtml-border-radius: 50%;
-    //         // background-color: $purpure;
-    //     }
-    // }
 }
 
 // * Footer * //

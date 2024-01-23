@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/styles/style.scss">
     <title>ActiveBox</title>
 </head>
@@ -54,13 +56,13 @@
                         <a class="nav__link" href="#our__team">Work</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="nav__link">Our Team</a>
+                        <a class="nav__link" href="" >Our Team</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="nav__link">Testomonials</a>
+                        <a class="nav__link" href="" >Testomonials</a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="nav__link">Download</a>
+                        <a class="nav__link" href="" >Download</a>
                     </li>
                 </ul>
 
@@ -272,7 +274,6 @@
             </div>
         </div>
     </div>
-    <div class="our__team"></div>
     <div id="our__team" class="our__team">
         <div class="our__team-container container">
             <div class="member">
@@ -417,31 +418,60 @@
             </div>
         </div>
     </div>
-    <section class="testimonials">
-        <div class="testimonials__container">
-            <div class="testimonials__image">
-                <img class="testimonials__img" src="./assets/images/testimonials_bg.jpeg" alt="">
-            </div>
-            <div class="testimonials__wrapper">
-                <h2 class="testimonials__wrapper-title">“Integer Posuere Erat A nte Venenatis Dapibus Posuere Velit Aliquet.
-                    Donec Sed Odio Dui. Aenean Eu Leo Quam...”</h2>
+    <section class="swiper testimonials testimonialsSwiper">
+        <div class="swiper-wrapperr">
+            <div class="swiper-slide testimonials__container">
+                <div class="swiper-slide testimonials__image">
+                    <img class="testimonials__img" src="./assets/images/testimonials_bg.jpeg" alt="">
+                </div>
+                <div class="testimonials__wrapper">
+                    <h2 class="testimonials__wrapper-title">“Integer Posuere Erat A nte Venenatis Dapibus Posuere Velit Aliquet.
+                        Donec Sed Odio Dui. Aenean Eu Leo Quam...”</h2>
                     <p class="testimonials__wrapper-text">Susan Sims, Interaction Designer at XYZ</p>
+                </div>
             </div>
-            <div class="circle__wrapper">
-                <!-- <div class="circle"></div>
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                            <div class="circle"></div> -->
-                <!-- <svg class="clircle" xmlns="http://www.w3.org/2000/svg" width="170" height="14" viewBox="0 0 170 14" fill="none">
-                    <circle cx="163" cy="7" r="6.5" stroke="#7E5D6F" />
-                    <circle cx="124" cy="7" r="6.5" stroke="#7E5D6F" />
-                    <circle cx="85" cy="7" r="6.5" stroke="#7E5D6F" />
-                    <circle cx="46" cy="7" r="6.5" fill="#7E5D6F" stroke="#7E5D6F" />
-                    <circle cx="7" cy="7" r="6.5" stroke="#7E5D6F" />
-                </svg> -->
+            <div class="swiper-slide testimonials__container">
+                <div class="swiper-slide testimonials__image">
+                    <img class="testimonials__img" src="./assets/images/testimonials_bg.jpeg" alt="">
+                </div>
+                <div class="testimonials__wrapper">
+                    <h2 class="testimonials__wrapper-title">“Integer Posuere Erat A nte Venenatis Dapibus Posuere Velit Aliquet.
+                        Donec Sed Odio Dui. Aenean Eu Leo Quam...”</h2>
+                    <p class="testimonials__wrapper-text">Susan Sims, Interaction Designer at XYZ</p>
+                </div>
+            </div>
+            <div class="swiper-slide testimonials__container">
+                <div class="swiper-slide testimonials__image">
+                    <img class="testimonials__img" src="./assets/images/testimonials_bg.jpeg" alt="">
+                </div>
+                <div class="testimonials__wrapper">
+                    <h2 class="testimonials__wrapper-title">“Integer Posuere Erat A nte Venenatis Dapibus Posuere Velit Aliquet.
+                        Donec Sed Odio Dui. Aenean Eu Leo Quam...”</h2>
+                    <p class="testimonials__wrapper-text">Susan Sims, Interaction Designer at XYZ</p>
+                </div>
+            </div>
+            <div class="swiper-slide testimonials__container">
+                <div class="swiper-slide testimonials__image">
+                    <img class="testimonials__img" src="./assets/images/testimonials_bg.jpeg" alt="">
+                </div>
+                <div class="testimonials__wrapper">
+                    <h2 class="testimonials__wrapper-title">“Integer Posuere Erat A nte Venenatis Dapibus Posuere Velit Aliquet.
+                        Donec Sed Odio Dui. Aenean Eu Leo Quam...”</h2>
+                    <p class="testimonials__wrapper-text">Susan Sims, Interaction Designer at XYZ</p>
+                </div>
+            </div>
+            <div class="swiper-slide testimonials__container">
+                <div class="swiper-slide testimonials__image">
+                    <img class="testimonials__img" src="./assets/images/testimonials_bg.jpeg" alt="">
+                </div>
+                <div class="testimonials__wrapper">
+                    <h2 class="testimonials__wrapper-title">“Integer Posuere Erat A nte Venenatis Dapibus Posuere Velit Aliquet.
+                        Donec Sed Odio Dui. Aenean Eu Leo Quam...”</h2>
+                    <p class="testimonials__wrapper-text">Susan Sims, Interaction Designer at XYZ</p>
+                </div>
             </div>
         </div>
+        <div class="swiper-pagination"></div>
     </section>
     <section id="download" class="download">
         <div class="download__container container">
@@ -501,6 +531,10 @@
         </div>
         
     </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 
