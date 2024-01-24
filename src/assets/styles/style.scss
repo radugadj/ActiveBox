@@ -12,8 +12,7 @@
     width: 100%;
     z-index: 2;
     @media screen and (max-width: 767px) {
-        height: 100%;
-        width: 100%;
+        padding: 22px 0;
     }
     &.scrolled {
         display: none;
@@ -23,12 +22,6 @@
         position: relative;
         justify-content: space-between;
         align-items: center;
-        padding: 0;
-        @media screen and (max-width: 767px) {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
         &:after {
             position: absolute;
             content: "";
@@ -45,12 +38,9 @@
     &__logo {
         position: relative;
         @media screen and (max-width: 767px) {
-            margin-top: 21px;
             max-width: 103.472px;
             display: flex;
-            position: absolute;
-            z-index: 1;
-            left: 20px;
+            z-index: 2;
             top: 0;
         }
     }
@@ -61,11 +51,7 @@
         height: 18px;
         position: relative;
         @media screen and (max-width: 767px) {
-            margin-top: 21px;
             display: block;
-            position: absolute;
-            left: 88%;
-            top: 0;
         }
         &::before {
             content: "";
@@ -115,24 +101,32 @@
 
 .nav {
     @media screen and (max-width: 767px) {
-        display: none;
-        &.open {
-            display: flex;
-            z-index: 1;
-            background: url(../images/background.jpg), ;
-            background-size: cover;
-            max-width: 100%;
+        z-index: 1;
+        left: 100%;
+        background: url(../images/background.jpg);
+        background-size: cover;
+        max-width: 100%;
+        display: flex;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        padding: 120px 20px;
+        transition: left 0.3s linear;
+        // transition: all 1s ease 0s;
+        &::after {
+            content: "";
+            opacity: 0.8;
+            background-color: $darkviolet;
+            width: 100%;
             height: 100%;
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0.8;
-                background-color: rgba(37, 43, 73, 1);
-            }
+            position: absolute;
+            left: 0;
+            top: 0;
+            
+        }
+        &.open {
+            left: 0%;
         }
     }
 
@@ -143,9 +137,7 @@
         justify-content: center;
         align-items: center;
         @media screen and (max-width: 767px) {
-            z-index: 1;
             display: block;
-            margin-top: 70px;
         }
     }
 
@@ -154,14 +146,13 @@
         text-decoration: none;
         text-transform: uppercase;
         text-align: center;
-        border-bottom: 1px solid transparent;
+        border-bottom: 3px solid transparent;
         color: $white;
         padding: 43px 30px;
         display: block;
         @media screen and (max-width: 767px) {
-            padding: 20px 20px;
+            padding: 20px 0;
             text-align: left;
-            
         }
         &:hover {
             color: $white;
@@ -181,9 +172,10 @@
     background-size: cover;
     background-position: center center;
     padding: 230px 0 120px;
+    margin-bottom: 116px;
     position: relative;
     @media screen and (max-width: 767px) {
-        padding: 106px 0 0;
+        padding: 106px 0 52px;
     }
     &:after {
         position: absolute;
@@ -200,9 +192,6 @@
         position: relative;
         z-index: 1;
         @media screen and (max-width: 767px) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             max-width: 100%;
             padding: 20px;
         }
@@ -223,14 +212,17 @@
     &__text {
         color: $white;
         text-align: center;
+        max-width: 1170px;
         @include font("Raleway", 24px, 400, 28.18px);
         margin-bottom: 80px;
         @media screen and (max-width: 767px) {
             @include font("Raleway", 14px, 400, 16.44px);
             color: $white;
             text-align: center;
-            max-width: 280px;
             margin-bottom: 49px;
+        }
+        @media screen and (max-width: 1024px) {
+            max-width: 980px;
         }
     }
     &__button {
@@ -258,7 +250,6 @@
         }
         @media screen and (max-width: 767px) {
             max-width: 100%;
-            margin-bottom: 52px;
         }
     }
 }
@@ -266,39 +257,21 @@
 /* Features */
 
 .features {
+    margin-bottom: 170px;
     &__container {
-        margin: 116px 170px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
         column-gap: 30px;
-        max-width: 1510px;
+        row-gap: 88px;
     }
     @media screen and (max-width: 767px) {
         &__container {
-            margin: 40px auto 35px;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            column-gap: 30px;
+            grid-template-columns: 1fr;
+            row-gap: 41.46px;
         }
     }
     &__block {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        max-width: 370px;
-        margin-bottom: 87px;
         @media screen and (max-width: 767px) {
-            max-width: 279px;
-            margin-bottom: 41px;
             &:nth-last-child(1) {
                 margin-bottom: 0;
             }
@@ -308,8 +281,12 @@
         margin-bottom: 0;
     }
     &__image {
-        max-width: 100px;
-        margin-bottom: 29px;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @media screen and (max-width: 767px) {
             margin-bottom: 20px;
             svg {
@@ -320,8 +297,7 @@
     }
 
     &__title {
-        max-width: 370px;
-        color: #2d3033;
+        color: $black;
         @include font("Raleway", 24px, 900, 28.18px);
         text-align: center;
         text-transform: uppercase;
@@ -329,17 +305,14 @@
         @media screen and (max-width: 767px) {
             @include font("Raleway", 18px, 900, 21px);
             margin-bottom: 10px;
-            max-width: 280px;
         }
     }
     &__description {
-        max-width: 370px;
-        color: #6c7279;
+        color: $grey;
         @include font("Raleway", 18px, 400, 21px);
         text-align: center;
         @media screen and (max-width: 767px) {
             @include font("Raleway", 14px, 400, 16px);
-            max-width: 280px;
         }
     }
 }
@@ -347,15 +320,15 @@
 /* Work */
 
 .work {
+    margin-bottom: 114px;
     &__container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         margin: 0;
         padding: 0;
         column-gap: 2px;
-        max-width: 1510px;
+        max-width: 100%;
         @media screen and (max-width: 767px) {
-            display: grid;
             grid-template-columns: repeat(2, 1fr);
         }
     }
@@ -368,7 +341,6 @@
     &__img {
         position: absolute;
         object-fit: cover;
-        overflow: hidden;
         object-position: center;
         top: 0;
         left: 0;
@@ -388,7 +360,7 @@
         flex-direction: column;
         opacity: 0;
         @media screen and (max-width: 767px) {
-                text-align: center;            
+            text-align: center;
         }
         &:hover {
             opacity: 1;
@@ -414,7 +386,6 @@
 
 .team {
     margin-bottom: 114px;
-    scroll-margin-top: 57px;
     @media only screen and (max-width: 1024px) {
         margin-bottom: 78.41px;
     }
@@ -425,7 +396,7 @@
 
 .social {
     display: flex;
-    column-gap: 5.5px;
+    column-gap: 2px;
     @media only screen and (max-width: 1024px) {
         column-gap: 5.05px;
     }
@@ -455,7 +426,7 @@
         }
         &:active {
             border: 3px solid $darkred;
-            transition: all 0.3s linear
+            transition: all 0.3s linear;
         }
     }
 }
@@ -464,26 +435,24 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 30px;
-    padding: 114px 20px;
-    margin: 0 auto;
+    margin-bottom: 114px;
     @media only screen and (max-width: 1024px) {
         column-gap: 25px;
-        padding: 78px 20px;
+        padding: 0 20px;
     }
     @media only screen and (max-width: 767px) {
         row-gap: 49px;
         grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 34px;
     }
 }
 
 .people {
     &__img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         overflow: hidden;
-        aspect-ratio: 1/1;
+        aspect-ratio: 1;
         margin-bottom: 30px;
+        position: relative;
         @media only screen and (max-width: 1024px) {
             margin-bottom: 27px;
             aspect-ratio: 1/1;
@@ -632,7 +601,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         height: auto;
-        @media screen and (max-width: 767px){
+        @media screen and (max-width: 767px) {
             display: flex;
             flex-direction: column;
             margin-bottom: 67px;
@@ -645,8 +614,8 @@
         align-items: center;
         grid-row-gap: 10px;
         background-color: $purpure;
-        margin-bottom: 159px;
-        @media screen and (max-width: 767px){
+        padding: 116px;
+        @media screen and (max-width: 767px) {
             display: flex;
             flex-direction: column;
             padding: 32px 25px 95px;
@@ -659,45 +628,44 @@
             color: $white;
             max-width: 471px;
             margin-bottom: 10px;
-            @media screen and (max-width: 767px){
+            @media screen and (max-width: 767px) {
                 @include font("Cordo", 24px, 400, 32px);
-            max-width: 275px;
-        }
+                max-width: 275px;
+            }
         }
         &-text {
             @include font("Raleway", 13px, 400, 15px);
             color: $white;
             text-align: left;
             text-transform: uppercase;
-             @media screen and (max-width: 767px){
+            @media screen and (max-width: 767px) {
                 @include font("Raleway", 12px, 700, 14px);
                 max-width: 275px;
-        }
+            }
         }
     }
     &__image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         overflow: hidden;
         position: relative;
-        margin-bottom: 159px;
         @media only screen and (max-width: 767px) {
-                position: relative;
-                margin: 0;
-                background-size: contain;
-        } 
-        }
-        &__img {
-            object-fit: cover;
-            object-position: center;
-            width: 100%;
-            height: 100%;
             position: relative;
-            @media screen and (max-width: 767px) {
-                margin: 0;
-                aspect-ratio: 4/3;
+            margin: 0;
+            background-size: contain;
+        }
+    }
+    &__img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
 
+        @media screen and (max-width: 767px) {
+            position: relative;
+            margin: 0;
+            aspect-ratio: 4/3;
         }
     }
 }
@@ -829,8 +797,6 @@
     }
 
     &__copyright {
-        display: flex;
-        justify-content: center;
         background-color: $darkviolet;
         padding: 24px 0;
         @media only screen and (max-width: 1024px) {
@@ -845,6 +811,7 @@
         @include font("Raleway", 18px, 400, 21px);
         color: $white;
         max-width: 400px;
+        margin: 0 auto;
         @media only screen and (max-width: 1024px) {
             font-size: 14px;
             line-height: 16px;
@@ -856,38 +823,44 @@
     }
 }
 
-
 .swiper .testimonials .testimonialsSwiper .swiper-initialized .swiper-horizontal .swiper-backface-hidden {
     padding: 45px;
- }
+}
 
- .swiper-pagination-bullet {
+.swiper-pagination-bullet {
     width: 14px;
     height: 14px;
-    border: 1px  solid $purpure;
+    border: 1px solid $purpure;
     border-radius: 50%;
     background-color: transparent;
     opacity: 1;
- }
+}
 
- .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
     background-color: $purpure;
- }
+}
 
- .swiper-horizontal, .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+.swiper-horizontal,
+.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0;
- }
+}
 
- .swiper-pagination {
+.swiper-pagination {
     display: flex;
     column-gap: 25px;
     justify-content: center;
-    margin-bottom: 114px;
     @media screen and (max-width: 767px) {
         margin-bottom: 35px;
     }
- }
+}
 
- .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 0;
- }
+}
+
+.testimonials.testimonialsSwiper {
+    margin-bottom: 114px;
+    padding-bottom: 45px;
+}
