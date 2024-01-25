@@ -4,7 +4,7 @@
 Use of technology:
 1. HTML5/CC3
 2. Preproccesor Parsel
-3.SCSS/SASS
+3. SCSS/SASS
 4. JavaScript
 
 # Depoly project for Netlify
