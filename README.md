@@ -9,3 +9,8 @@ Use of technology:
 
 # Depoly project for Netlify
  [![Demo](https://api.netlify.com/api/v1/badges/3dabe223-820d-4e04-847a-bd054f8923f2/deploy-status)](https://app.netlify.com/sites/activebox-pavlov/deploys)
+
+# Npm build
+> - npm install
+> - npx parcel src/index.html
+> - npx parcel build src/index.html
