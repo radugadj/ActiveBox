@@ -15,7 +15,22 @@
         padding: 22px 0;
     }
     &.scrolled {
-        display: none;
+        display: fixed;
+        width: 100%;
+        background-color: $darkviolet;
+        height: 70px;
+        &:after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            width: calc(100% - 30px);
+            border-top: 1px solid $grey;
+            left: 50%;
+            transform: translateX(-50%);
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
+        }
     }
     &__container {
         display: flex;
@@ -147,22 +162,36 @@
         text-align: center;
         border-bottom: 4px solid transparent;
         color: $white;
-        padding: 30px 0;
+        padding: 25px 0;
         min-width: 134px;
         display: block;
+        position: relative;
         @media screen and (max-width: 767px) {
             padding: 20px 0;
             text-align: left;
         }
-        &:hover {
+        &:hover::after {
             color: $white;
             border-bottom: 3px solid $grey;
             transition: all 0.5s linear;
+            width: 100%;
+            left: 0;
         }
         &:active {
             color: $red;
             border-bottom: 3px solid $red;
             transition: all 0.5s linear;
+        }
+        &::after {
+            background: none repeat scroll 0 0 transparent;
+            bottom: -3px;
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            background: #fff;
+            transition: width .3s ease 0s, left .3s ease 0;
+            width: 0;
         }
     }
 }
@@ -249,6 +278,7 @@
         transition: all 0.3s linear;
         &:hover {
             background: $darkred;
+            animation: shake .3s linear infinite both;
         }
         &:active {
             background: $lightred;
@@ -442,6 +472,9 @@
         &:hover {
             border: 3px solid $darkred;
             transition: all 0.3s linear;
+            path {
+                fill: $darkred;
+            }
         }
         &:active {
             border: 3px solid $darkred;
@@ -601,6 +634,7 @@
         transition: all 0.3s linear;
         &:hover {
             background: $darkred;
+            animation: shake .3s linear infinite both;
         }
         &:active {
             background: $lightred;
@@ -772,6 +806,17 @@
                 width: 33px;
                 height: 33px;
             }
+            &:hover {
+            border: 3px solid $white;
+            transition: all 0.3s linear;
+            path {
+                fill: $white;
+            }
+            }
+            &:active {
+                border: 3px solid $darkred;
+                transition: all 0.3s linear;
+            }
         }
     }
 
@@ -868,4 +913,26 @@
 .testimonials.testimonialsSwiper {
     margin-bottom: 67px;
     padding-bottom: 75px;
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, 2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
 }
