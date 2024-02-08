@@ -1,0 +1,961 @@
+@import "reset";
+@import "mixin";
+@import "cdn";
+@import "color";
+
+/* Header */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    @media screen and (max-width: 767px) {
+        padding: 22px 0;
+    }
+    &.scrolled {
+        display: fixed;
+        width: 100%;
+        background-color: $darkviolet;
+        height: 70px;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        &:after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            width: calc(100% - 30px);
+            border-top: 1px solid $grey;
+            left: 50%;
+            transform: translateX(-50%);
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
+        }
+    }
+    &__container {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        &:after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            width: calc(100% - 30px);
+            border-top: 1px solid $grey;
+            left: 50%;
+            transform: translateX(-50%);
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
+        }
+    }
+    &__logo {
+        position: relative;
+        @media screen and (max-width: 767px) {
+            max-width: 103.472px;
+            display: flex;
+            z-index: 2;
+            top: 0;
+        }
+    }
+    &__toggle-menu {
+        display: none;
+        z-index: 3;
+        width: 24px;
+        height: 18px;
+        position: relative;
+        @media screen and (max-width: 767px) {
+            display: block;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            border-bottom: 3px solid $white;
+            left: 0;
+            top: 0;
+            transition: all 0.3s linear;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            border-bottom: 3px solid $white;
+            left: 0;
+            bottom: 0;
+            transition: all 0.3s linear;
+        }
+        &.open {
+            .header__toggle-item {
+                opacity: 0;
+                z-index: 3;
+            }
+            &::after {
+                transform: rotate(-45deg) translate(5px, -5px);
+                transition: all 0.3s linear;
+            }
+            &::before {
+                transform: rotate(45deg) translate(5.8px, 5.8px);
+                transition: all 0.3s linear;
+            }
+        }
+    }
+    &__toggle-item {
+        border-bottom: 3px solid $white;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        transition: all 2s linear;
+    }
+}
+
+.nav {
+    @media screen and (max-width: 767px) {
+        z-index: 1;
+        left: 100%;
+        background: url(../images/background.jpg);
+        background-size: cover;
+        max-width: 100%;
+        display: flex;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        padding: 120px 20px;
+        transition: left 0.3s linear;
+        // transition: all 1s ease 0s;
+        &::after {
+            content: "";
+            opacity: 0.8;
+            background-color: $darkviolet;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &.open {
+            left: 0%;
+        }
+    }
+
+    &__menu {
+        z-index: 1;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 767px) {
+            display: block;
+        }
+    }
+
+    &__link {
+        @include font("Raleway", 13px, 700, 15px);
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        border-bottom: 4px solid transparent;
+        color: $white;
+        padding: 25px 0;
+        min-width: 134px;
+        display: block;
+        position: relative;
+        @media screen and (max-width: 767px) {
+            padding: 20px 0;
+            text-align: left;
+        }
+        &:hover::after {
+            color: $white;
+            border-bottom: 3px solid $grey;
+            transition: all 0.5s linear;
+            width: 100%;
+            left: 0;
+        }
+        &:active {
+            color: $red;
+            border-bottom: 3px solid $red;
+            transition: all 0.5s linear;
+        }
+        &::after {
+            background: none repeat scroll 0 0 transparent;
+            bottom: -3px;
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            background: #fff;
+            transition:
+                width 0.3s ease 0s,
+                left 0.3s ease 0;
+            width: 0;
+        }
+    }
+}
+
+/* Banner */
+
+.banner {
+    background: url(../images/background.jpg);
+    background-size: cover;
+    background-position: center center;
+    padding: 230px 0 120px;
+    margin-bottom: 116px;
+    position: relative;
+    @media screen and (max-width: 767px) {
+        padding: 106px 0 52px;
+        margin-bottom: 40px;
+    }
+    &:after {
+        position: absolute;
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+        background-color: rgba(37, 43, 73, 1);
+    }
+    &__container {
+        position: relative;
+        z-index: 1;
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            padding: 0 20px;
+        }
+    }
+    &__title {
+        color: $white;
+        text-align: center;
+        @include font("Raleway", 64px, 900, 75.14px);
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        @media screen and (max-width: 767px) {
+            color: $white;
+            @include font("Raleway", 36px, 900, 42.26px);
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    &__text {
+        color: $white;
+        text-align: center;
+        max-width: 1000px;
+        width: 100%;
+        display: inline-block;
+        @include font("Raleway", 24px, 400, 28.18px);
+        margin-bottom: 80px;
+        @media screen and (max-width: 767px) {
+            @include font("Raleway", 14px, 400, 16.44px);
+            color: $white;
+            text-align: center;
+            margin-bottom: 49px;
+            max-width: 1000px;
+        }
+        @media screen and (max-width: 1024px) {
+            @include font("Raleway", 18px, 400, 21px);
+            margin-bottom: 89.14px;
+        }
+    }
+    &__button {
+        display: block;
+        cursor: pointer;
+        color: $white;
+        text-align: center;
+        @include font("Raleway", 24px, 900, 30.18px);
+        text-transform: uppercase;
+        text-decoration: none;
+        background: $red;
+        border: none;
+        max-width: 370px;
+        width: 100%;
+        padding: 25px 0;
+        margin: 0 auto;
+        transition: all 0.3s linear;
+        &:hover {
+            background: $darkred;
+            animation: shake 0.3s linear infinite both;
+        }
+        &:active {
+            background: $lightred;
+            box-shadow: 4px 4px 30px 0px $darkred;
+        }
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+        }
+    }
+}
+
+/* Features */
+
+.features {
+    margin-bottom: 170px;
+    @media only screen and (max-width: 1024px) {
+        margin-bottom: 81px;
+    }
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 37px;
+    }
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 30px;
+        row-gap: 88px;
+        @media only screen and (max-width: 1024px) {
+            column-gap: 20px;
+            row-gap: 49px;
+        }
+        @media screen and (max-width: 767px) {
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 43px;
+        }
+    }
+    &__block {
+        @media screen and (max-width: 767px) {
+            &:nth-last-child(1) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__block:nth-last-child(-n + 3) {
+        margin-bottom: 0;
+    }
+    &__image {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 29px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media only screen and (max-width: 1024px) {
+            margin-bottom: 43.5px;
+            width: 85px;
+            height: 85px;
+        }
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 37px;
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    &__title {
+        color: $black;
+        @include font("Raleway", 24px, 900, 28.18px);
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @media screen and (max-width: 767px) {
+            @include font("Raleway", 18px, 900, 21px);
+            margin-bottom: 10px;
+        }
+    }
+    &__description {
+        color: $grey;
+        @include font("Raleway", 18px, 400, 21px);
+        text-align: center;
+        @media screen and (max-width: 767px) {
+            @include font("Raleway", 14px, 400, 16px);
+        }
+    }
+}
+
+/* Work */
+
+.work {
+    margin-bottom: 114px;
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0;
+        padding: 0;
+        column-gap: 2px;
+        max-width: 100%;
+        @media screen and (max-width: 767px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    &__image {
+        position: relative;
+        padding-top: 100%;
+        width: 100%;
+        height: 100%;
+        &:hover {
+            transform-origin: left top;
+            margin-top: -5px;
+            margin-left: 0;
+            transition: margin-left 130ms;
+            transition: margin-top 130ms;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
+        }
+    }
+    &__img {
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &__info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $lightred;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 0;
+        cursor: pointer;
+        transition: all 0.3s linear;
+        @media screen and (max-width: 767px) {
+            text-align: center;
+        }
+        &:hover {
+            opacity: 1;
+        }
+        &:active {
+            opacity: 1;
+            background: $darkred;
+        }
+    }
+    &__title {
+        @include font("Raleway", 24px, 900, 28px);
+        color: $white;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    &__text {
+        @include font("Raleway", 18px, 400, 21px);
+        color: $white;
+    }
+}
+
+// * Our Team * //
+
+.team {
+    margin-bottom: 114px;
+    @media only screen and (max-width: 1024px) {
+        margin-bottom: 78.41px;
+    }
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 34.39px;
+    }
+}
+
+.social {
+    display: flex;
+    column-gap: 2px;
+    @media only screen and (max-width: 1024px) {
+        column-gap: 5.05px;
+    }
+    @media only screen and (max-width: 767px) {
+        column-gap: 6.09px;
+    }
+
+    &__block-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 39px;
+        height: 39px;
+        border: 1px solid $grey;
+        transition: all 0.3s linear;
+        @media only screen and (max-width: 1024px) {
+            width: 32.8px;
+            height: 32.8px;
+        }
+        @media only screen and (max-width: 767px) {
+            width: 39.6px;
+            height: 39.6px;
+        }
+        &:hover {
+            border: 3px solid $darkred;
+            transition: all 0.3s linear;
+            path {
+                fill: $darkred;
+            }
+        }
+        &:active {
+            border: 3px solid $darkred;
+            transition: all 0.3s linear;
+        }
+    }
+}
+
+.our__team-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    margin-bottom: 114px;
+    @media only screen and (max-width: 1024px) {
+        column-gap: 25px;
+        padding: 0 20px;
+    }
+    @media only screen and (max-width: 767px) {
+        row-gap: 49px;
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 34px;
+    }
+}
+
+.people {
+    &__block {
+        &:hover {
+            width: 297px;
+            height: 100%;
+            padding: 10px 10px;
+            transform-origin: left top;
+            margin-top: 10px;
+            margin-left: 0;
+            transition: margin-left 130ms;
+            transition: margin-top 130ms;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
+        }
+    }
+    &__img {
+        overflow: hidden;
+        aspect-ratio: 1;
+        margin-bottom: 30px;
+        position: relative;
+        @media only screen and (max-width: 1024px) {
+            margin-bottom: 27px;
+            aspect-ratio: 1/1;
+        }
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 28px;
+            aspect-ratio: 280/227;
+        }
+    }
+    &__image {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__name {
+        @include font("Raleway", 24px, 700, 28px);
+        color: $black;
+        margin-bottom: 5.29px;
+        text-transform: capitalize;
+        @media only screen and (max-width: 1024px) {
+            margin-bottom: 7px;
+            font-size: 18px;
+            line-height: 21px;
+        }
+    }
+
+    &__position {
+        @include font("Raleway", 18px, 400, 21px);
+        color: $red;
+        margin-bottom: 17.86px;
+        text-transform: uppercase;
+        @media only screen and (max-width: 1024px) {
+            margin-bottom: 22.45px;
+            font-size: 14px;
+            line-height: 16px;
+        }
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 38.49px;
+        }
+    }
+
+    &__text {
+        @include font("Raleway", 18px, 400, 21px);
+        color: $grey;
+        margin-bottom: 38px;
+        @media only screen and (max-width: 1024px) {
+            margin-bottom: 39.2px;
+            font-size: 14px;
+            line-height: 16px;
+        }
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 55.15px;
+        }
+    }
+}
+
+// * Download * //
+
+.download {
+    margin: 0 auto 113.5px;
+    @media only screen and (max-width: 1024px) {
+        margin-bottom: 76px;
+    }
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 45px;
+    }
+
+    &__container {
+        text-align: center;
+    }
+
+    &__text {
+        @include font("Raleway", 30px, 500, 35px);
+        color: $black;
+        margin-bottom: 23px;
+        @media only screen and (max-width: 1024px) {
+            font-size: 24px;
+            line-height: 28px;
+            margin-bottom: 22px;
+        }
+        @media only screen and (max-width: 767px) {
+            font-size: 18px;
+            line-height: 21px;
+            margin-bottom: 22px;
+        }
+    }
+
+    &__description {
+        @include font("Raleway", 18px, 700, 21px);
+        color: $black;
+        margin-bottom: 48px;
+        text-transform: uppercase;
+        @media only screen and (max-width: 1024px) {
+            font-size: 14px;
+            line-height: 16px;
+            margin-bottom: 43.29px;
+        }
+        @media only screen and (max-width: 767px) {
+            font-size: 13px;
+            line-height: 15px;
+            margin-bottom: 11px;
+        }
+    }
+
+    &__button {
+        @media only screen and (max-width: 1024px) {
+            font-size: 18px;
+            line-height: 21px;
+            padding: 29px;
+            max-width: 100%;
+        }
+        display: block;
+        cursor: pointer;
+        color: $white;
+        text-align: center;
+        @include font("Raleway", 18px, 900, 21px);
+        text-transform: uppercase;
+        text-decoration: none;
+        background: $red;
+        border: none;
+        max-width: 370px;
+        width: 100%;
+        padding: 18px 0 18px;
+        margin: 0 auto;
+        transition: all 0.3s linear;
+        &:hover {
+            background: $darkred;
+            animation: shake 0.3s linear infinite both;
+        }
+        &:active {
+            background: $lightred;
+            box-shadow: 4px 4px 30px 0px $darkred;
+        }
+    }
+}
+
+// * Testimonials * //
+.testimonials {
+    padding-bottom: 45px;
+    @media screen and (max-width: 767px) {
+        padding-bottom: 0;
+    }
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+        @media screen and (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__wrapper {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        grid-row-gap: 10px;
+        background-color: $purpure;
+        padding: 116px;
+        @media screen and (max-width: 767px) {
+            padding: 32px 25px 95px;
+        }
+        &-title {
+            @include font("Cordo", 36px, 400, 49px);
+            font-style: italic;
+            color: $white;
+            max-width: 471px;
+            margin-bottom: 10px;
+            @media screen and (max-width: 767px) {
+                @include font("Cordo", 24px, 400, 32px);
+                max-width: 275px;
+            }
+        }
+        &-text {
+            @include font("Raleway", 13px, 400, 15px);
+            color: $white;
+            text-align: left;
+            text-transform: uppercase;
+            @media screen and (max-width: 767px) {
+                @include font("Raleway", 12px, 700, 14px);
+                max-width: 275px;
+            }
+        }
+    }
+    &__image {
+        overflow: hidden;
+        position: relative;
+        @media only screen and (max-width: 767px) {
+            aspect-ratio: 4/3;
+        }
+    }
+    &__img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+// * Footer * //
+
+.footer {
+    text-align: center;
+
+    &__wrapper-info {
+        background-color: $violet;
+        padding: 70px 0 0;
+        @media only screen and (max-width: 1024px) {
+            padding: 46.59px 0 41.19px;
+        }
+        @media only screen and (max-width: 767px) {
+            padding: 34.14px 0 0;
+        }
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 30px;
+        margin-bottom: 71px;
+        @media only screen and (max-width: 1024px) {
+            column-gap: 20px;
+        }
+        @media only screen and (max-width: 767px) {
+            display: block;
+        }
+    }
+
+    &__location {
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 69.24px;
+        }
+
+        &-title {
+            @include font("Raleway", 18px, 700, 21px);
+            color: $white;
+            margin-bottom: 29px;
+            text-transform: uppercase;
+            @media only screen and (max-width: 1024px) {
+                font-size: 14px;
+                line-height: 16px;
+                margin-bottom: 17.72px;
+            }
+            @media only screen and (max-width: 767px) {
+                margin-bottom: 33px;
+            }
+        }
+
+        &-text {
+            @include font("Raleway", 18px, 400, 21px);
+            color: $white;
+            @media only screen and (max-width: 1024px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+    }
+
+    &__social {
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 59.05px;
+        }
+        &-title {
+            @include font("Raleway", 18px, 700, 21px);
+            color: $white;
+            margin-bottom: 48.86px;
+            text-transform: uppercase;
+            @media only screen and (max-width: 1024px) {
+                font-size: 14px;
+                line-height: 16px;
+                margin-bottom: 32.51px;
+            }
+            @media only screen and (max-width: 767px) {
+                margin-bottom: 36.71px;
+            }
+        }
+
+        &-block {
+            column-gap: 27px;
+            justify-content: center;
+            @media only screen and (max-width: 1024px) {
+                column-gap: 23px;
+            }
+            @media only screen and (max-width: 767px) {
+                column-gap: 16.77px;
+            }
+        }
+
+        &-wrapper-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media only screen and (max-width: 1024px) {
+                width: 33px;
+                height: 33px;
+            }
+            &:hover {
+                border: 3px solid $white;
+                transition: all 0.3s linear;
+                path {
+                    fill: $white;
+                }
+            }
+            &:active {
+                border: 3px solid $darkred;
+                transition: all 0.3s linear;
+            }
+        }
+    }
+
+    &__about {
+        &-title {
+            @include font("Raleway", 18px, 700, 21px);
+            color: $white;
+            margin-bottom: 29px;
+            text-transform: uppercase;
+            @media only screen and (max-width: 1024px) {
+                font-size: 14px;
+                line-height: 16px;
+                margin-bottom: 15.58px;
+            }
+            @media only screen and (max-width: 767px) {
+                margin-bottom: 38.71px;
+            }
+        }
+
+        &-text {
+            @include font("Raleway", 18px, 400, 21px);
+            color: $white;
+            @media only screen and (max-width: 1024px) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+    }
+
+    &__copyright {
+        background-color: $darkviolet;
+        padding: 24px 0;
+        @media only screen and (max-width: 1024px) {
+            padding: 14px 0 15px;
+        }
+        @media only screen and (max-width: 767px) {
+            padding: 29.86px 20px 28.14px;
+        }
+    }
+
+    &__copyright-text {
+        @include font("Raleway", 18px, 400, 21px);
+        color: $white;
+        max-width: 400px;
+        margin: 0 auto;
+        @media only screen and (max-width: 1024px) {
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        &-text {
+            color: $white;
+        }
+    }
+}
+
+.swiper .testimonials .testimonialsSwiper .swiper-initialized .swiper-horizontal .swiper-backface-hidden {
+    padding: 45px;
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    border: 1px solid $purpure;
+    border-radius: 50%;
+    background-color: transparent;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: $purpure;
+}
+
+.swiper-horizontal,
+.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+}
+
+.swiper-pagination {
+    display: flex;
+    column-gap: 25px;
+    justify-content: center;
+    @media screen and (max-width: 767px) {
+        margin-bottom: 35px;
+    }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 0;
+}
+
+.testimonials.testimonialsSwiper {
+    margin-bottom: 67px;
+    padding-bottom: 75px;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, 2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
