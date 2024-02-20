@@ -20,18 +20,6 @@
         background-color: $darkviolet;
         height: 70px;
         box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-        &:after {
-            position: absolute;
-            content: "";
-            bottom: 0;
-            width: calc(100% - 30px);
-            border-top: 1px solid $grey;
-            left: 50%;
-            transform: translateX(-50%);
-            @media screen and (max-width: 767px) {
-                display: none;
-            }
-        }
     }
     &__container {
         display: flex;
@@ -49,6 +37,7 @@
             @media screen and (max-width: 767px) {
                 display: none;
             }
+
         }
     }
     &__logo {
@@ -93,14 +82,14 @@
             .header__toggle-item {
                 opacity: 0;
                 z-index: 3;
+                transition: all 0.3s linear;
             }
             &::after {
                 transform: rotate(-45deg) translate(5px, -5px);
-                transition: all 0.3s linear;
+                
             }
             &::before {
                 transform: rotate(45deg) translate(5.8px, 5.8px);
-                transition: all 0.3s linear;
             }
         }
     }
@@ -167,21 +156,20 @@
         min-width: 134px;
         display: block;
         position: relative;
+        transition: all 0.5s linear;
         @media screen and (max-width: 767px) {
             padding: 20px 0;
             text-align: left;
         }
         &:hover::after {
             color: $white;
-            border-bottom: 3px solid $grey;
-            transition: all 0.5s linear;
+            border-bottom: 3px solid $white;
             width: 100%;
             left: 0;
         }
         &:active {
             color: $red;
             border-bottom: 3px solid $red;
-            transition: all 0.5s linear;
         }
         &::after {
             background: none repeat scroll 0 0 transparent;
@@ -193,7 +181,7 @@
             background: #fff;
             transition:
                 width 0.3s ease 0s,
-                left 0.3s ease 0;
+                left 0.3s ease 0s;
             width: 0;
         }
     }
@@ -249,9 +237,8 @@
         text-align: center;
         max-width: 1000px;
         width: 100%;
-        display: inline-block;
+        margin: 0 auto 80px;
         @include font("Raleway", 24px, 400, 28.18px);
-        margin-bottom: 80px;
         @media screen and (max-width: 767px) {
             @include font("Raleway", 14px, 400, 16.44px);
             color: $white;
@@ -387,12 +374,12 @@
         padding-top: 100%;
         width: 100%;
         height: 100%;
+        transform-origin: left top;
+        transition: margin-left 130ms;
+        transition: margin-top 130ms;
         &:hover {
-            transform-origin: left top;
             margin-top: -5px;
             margin-left: 0;
-            transition: margin-left 130ms;
-            transition: margin-top 130ms;
             box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
         }
     }
@@ -444,7 +431,7 @@
 
 // * Our Team * //
 
-.team {
+.our__team {
     margin-bottom: 114px;
     @media only screen and (max-width: 1024px) {
         margin-bottom: 78.41px;
@@ -482,7 +469,6 @@
         }
         &:hover {
             border: 3px solid $darkred;
-            transition: all 0.3s linear;
             path {
                 fill: $darkred;
             }
@@ -498,7 +484,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 30px;
-    margin-bottom: 114px;
     @media only screen and (max-width: 1024px) {
         column-gap: 25px;
         padding: 0 20px;
@@ -512,15 +497,10 @@
 
 .people {
     &__block {
+            transition: all .13s linear;
         &:hover {
-            width: 297px;
-            height: 100%;
-            padding: 10px 10px;
-            transform-origin: left top;
+            padding: 10px;
             margin-top: 10px;
-            margin-left: 0;
-            transition: margin-left 130ms;
-            transition: margin-top 130ms;
             box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
         }
     }
@@ -640,7 +620,6 @@
             font-size: 18px;
             line-height: 21px;
             padding: 29px;
-            max-width: 100%;
         }
         display: block;
         cursor: pointer;
@@ -690,8 +669,8 @@
         grid-row-gap: 10px;
         background-color: $purpure;
         padding: 116px;
-        @media screen and (max-width: 767px) {
-            padding: 32px 25px 95px;
+        @media screen and (max-width: 768px) {
+            padding: 30px;
         }
         &-title {
             @include font("Cordo", 36px, 400, 49px);
@@ -701,7 +680,8 @@
             margin-bottom: 10px;
             @media screen and (max-width: 767px) {
                 @include font("Cordo", 24px, 400, 32px);
-                max-width: 275px;
+                margin: 0 auto;
+                text-align: center;
             }
         }
         &-text {
@@ -711,7 +691,8 @@
             text-transform: uppercase;
             @media screen and (max-width: 767px) {
                 @include font("Raleway", 12px, 700, 14px);
-                max-width: 275px;
+                max-width: 100%;
+                margin-bottom: 95px;
             }
         }
     }
@@ -742,7 +723,7 @@
         background-color: $violet;
         padding: 70px 0 0;
         @media only screen and (max-width: 1024px) {
-            padding: 46.59px 0 41.19px;
+            padding: 46.59px 0 0;
         }
         @media only screen and (max-width: 767px) {
             padding: 34.14px 0 0;
@@ -908,6 +889,13 @@
     border-radius: 50%;
     background-color: transparent;
     opacity: 1;
+    &:hover {
+        opacity: 1;
+        background-color: $violet;
+    }
+    &:active {
+        background-color: $darkviolet;
+    }
 }
 
 .swiper-pagination-bullet-active {
@@ -927,6 +915,9 @@
     @media screen and (max-width: 767px) {
         margin-bottom: 35px;
     }
+    // &:hover {
+
+    // }
 }
 
 .swiper-horizontal > .swiper-pagination-bullets,
