@@ -1,6 +1,7 @@
  // Получаем ссылку на элемент
         let scrollingElement = document.querySelector('.header');
-      
+        // let scrollingElementContainer = document.querySelector('.header__container');
+        
         // Функция, которая будет вызываться при прокрутке
         function handleScroll() {
           // Проверяем, насколько прокручена страница по вертикали
@@ -9,8 +10,10 @@
           // Условие, при котором добавляем класс
           if (scrollPosition > 0) {
             scrollingElement.classList.add('scrolled');
+            scrollingElementContainer.classList.add('scrolled');
           } else {
             scrollingElement.classList.remove('scrolled');
+            scrollingElementContainer.classList.remove('scrolled');
           }
         }
       
